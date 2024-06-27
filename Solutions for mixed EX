@@ -1,0 +1,255 @@
+"""
+Write a program that will get from the user the base and height of a triangle and compute its area.
+"""
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++Q1+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"""
+def area_traingle():
+    height = int(input("Enter the height"))
+    base = int(input("Enter the base"))
+    area = float(1/2*(height*base))
+    return area
+print(area_traingle())
+"""
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++Q2+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"""
+Write a function that gets a number and returns its sum of digits.
+"""
+"""
+def num_sum(num: int) -> int:
+    total = 0
+    for i in range(1, num + 1):
+        total += i
+    return total
+print(num_sum(20))
+"""
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++Q3+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"""
+Write a function that checks if a number is perfect.
+"""
+"""
+def is_perferct_number(num:int)-> bool:
+	if num <= 1:
+		return False
+	divisitor_sum = 0
+	for i in range(1, num):
+		if num % i == 0:
+			divisitor_sum += i
+	return divisitor_sum == num
+	
+print(is_perferct_number(6))
+"""
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++Q4+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"""
+Write a function that removes duplicate elements from a given list so that each element appears only once, and returns
+the new list. The original list should not be changed.
+
+"""
+"""
+from collections import Counter
+def remove_duplicates(list_elements):
+	list_elements = Counter(list_elements)
+	unique_elements = list(list_elements.keys())
+	print(f" removed duplicates :{unique_elements}")
+	
+
+if __name__ == "__main__":
+    list_elements = [2, 2, 3, 4, 5, 6, 3, 2, 3, 4]
+    remove_duplicates(list_elements)
+print(f" Orginal list is : {list_elements}")
+"""
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++Q5+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"""
+Write a program that prints out all colors from color_list_1 that are not present in color_list_2.
+"""
+"""
+color_list_1 = ["Red", "Blue", "Green"]
+color_list_2 = ["Red", "Blue", "Yellow", "White"]
+
+# Should print "Green"
+def is_green_color():
+    for color in color_list_1:
+        if color == "Green" and color not in color_list_2:
+            return color
+    return None
+print(is_green_color())
+"""
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++Q6+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"""
+Write a function gcd(num1, num2) that returns the greatest common divisor of the two numbers num1 and num2.
+Don’t use external libraries, implement the algorithm.
+"""
+"""
+def gcd(num1, num2) :
+    while num2 != 0:
+        (num1, num2) = (num2, num1 % num2)
+    return num1
+print(gcd(8,12))
+"""
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++Q7+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"""
+def is_substring(str1, str2):
+    if str1 in str2:
+        return True
+    else:
+        return False
+
+# Example usage                                                     #str1: Asmamaw
+str1 = input("Enter str1: ")                                        # str2: Asmaamw Chanie Yehun
+str2 = input("Enter str2: ")
+print(is_substring(str1, str2))
+#++++++++++++++++++++++++++++++++++++++Alternetively++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+def is_substring(str1, str2):
+    str1 = "Asmamaw Chanie Yehun"
+    str2 = "Asmamaw Chanie"
+    if (str1.find(str2) >= 0):
+        print("True")
+    else:
+        print("False")
+is_substring(str1, str2)
+
+"""
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++Q8+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"""
+Write a function is_substring_while(str1, str2) that returns True if str1 is a substring of str2, otherwise returns
+ False. Don’t use the in operator or any other external library, use only while loops.
+"""
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++Q9+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"""
+def is_substring(str1, str2):
+	len1 = len(str1)
+	len2 = len(str2)
+	i = 0
+	while i <= len2 - len1:
+		j = 0
+		while (j < len1 and str2[i + j] == str1[j]):
+			j += 1
+		if j == len1:
+			return True
+		i += 1
+	return False
+print(is_substring('Asmamaw', 'Asmamaw Chanie Yehun'))  # True
+"""
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++Q10+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+"""
+Write a function is_palindrome_no_loop(my_str) that returns True if my_str is a palindrome, otherwise returns False.
+don't use loop
+"""
+"""
+def is_palindrome_no_loop(my_str):
+	my_str_lower = my_str.replace(" ", "").lower()
+	return my_str == my_str_lower[::-1]
+user_input = input("Enter the word: ")
+print(is_palindrome_no_loop(user_input))
+"""
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++Q11+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+"""
+Write a function is_palindrome_no_loop(my_str) that returns True if my_str is a palindrome, otherwise returns False.
+
+use loop
+"""
+"""
+def is_palindrome_no_loop(my_str: str) -> bool:
+    my_str_lower = my_str.replace(" ", "").lower()  # Remove spaces and convert to lowercase
+    n = len(my_str_lower)
+    for i in range(n // 2):  # Iterate up to the middle of the string
+        if my_str_lower[i] != my_str_lower[n - 1 - i]:  # Compare characters from start and end
+            return False
+    return True
+user_input = input("Enter the word: ")
+print(is_palindrome_no_loop(user_input))
+"""
+"""
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++Q12+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Write a function letter_count(my_str) that counts the number of each character in a string.
+The function should return a frequency dictionary of the characters in the text.
+
+The dictionary should contain all the letters a-z in lower case, and only letters.
+If a letter was not found in the text, the value of the letter in the dictionary should be 0.
+"""
+my_str = "abcdefghijklmnopqrstuvwxyz"
+"""
+def letter_count(my_str):
+    my_str_freq = {}  # Initialize an empty dictionary to store character frequencies
+    for i in my_str:
+        if i in my_str_freq:
+            my_str_freq[i] += 1
+        else:
+            my_str_freq[i] = 1
+    
+    print("Count of all characters in my_str:")
+    print(str(my_str_freq))
+
+
+letter_count(my_str)
+"""
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++Q13+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+"""
+Write a function get_key_by_value(my_dict, value) that returns a list of all the keys in the dictionary that are
+associated with the given value.
+"""
+"""
+my_dict = {
+   "Masterschool": "love",
+   "Hamburger": "love",
+   "Tomato": "like"
+}
+
+def get_key_by_value(my_dict, value):
+    keys = []
+    for key, val in my_dict.items():
+        if val == value:
+            keys.append(key)
+    return keys
+# Test cases
+print(get_key_by_value(my_dict, "love") == ["Masterschool", "Hamburger"])
+print(get_key_by_value(my_dict, "like") == ["Tomato"])
+print(get_key_by_value(my_dict, "hate") == [])
+
+"""
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++Q14++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+"""
+
+Write a function reverse_dict(my_dict) that gets a dictionary and returns a new “reversed” dictionary.
+For example, for this dictionary:
+"""
+"""
+my_map = {
+   "Masterschool": "love",
+   "Hamburger": "love",
+   "Tomato": "like"
+}
+
+def reverse_dict():
+    inv_map = {}
+    for k, v in my_map.items():
+        inv_map[v] = inv_map.get(v, []) + [k]
+    print(my_map)
+    print(inv_map)
+reverse_dict()
+"""
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
